@@ -1,3 +1,8 @@
+var today = dayjs();
+$('#currentDay').text(today.format('dddd MMMM, Do'));
+//^^ need to find out how to add advanced day js for day with ordinal
+
+
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
@@ -21,3 +26,5 @@ $(function () {
     //
     // TODO: Add code to display the current date in the header of the page.
   });
+
+  
