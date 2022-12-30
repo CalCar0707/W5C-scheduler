@@ -1,16 +1,21 @@
 var today = dayjs();
-$('#currentDay').text(today.format('dddd MMMM, Do'));
+$('#currentDay').text(today.format('dddd, MMMM D, YYYY hh:mm:ss'));
 //^^ need to find out how to add advanced day js for day with ordinal
+var saveBtn = $('#save-button');
+var userInput = $('#user-input');
 
+const savedTask = localStorage.getItem('user-input');
+document.getElementById('user-input').value = savedTask
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(document).ready(() => {
-    $('.btn saveBtn').on('click', )
-
-})
+    
 $(function () {
+    
+    })
+
     // TODO: Add a listener for click events on the save button. This code should
     // use the id in the containing time-block as a key to save the user input in
     // local storage. HINT: What does `this` reference in the click listener
@@ -30,5 +35,11 @@ $(function () {
     //
     // TODO: Add code to display the current date in the header of the page.
   });
-
   
+    saveBtn.on('click', function() {
+        const listItem = document.createElement('p');
+        localStorage.setItem('user-input', JSON.stringify((userInput)));
+        const savedTask = localStorage.getItem('user-input');
+        listItem.append(savedTask);
+});
+
