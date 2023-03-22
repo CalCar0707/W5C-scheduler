@@ -1,5 +1,5 @@
 var today = dayjs();
-var currentTime = today.format('dddd, MMMM D, YYYY HH:mm:ss');
+var currentTime = today.format('HH');
 console.log(currentTime);
 
 $('#currentDay').text(today.format('dddd, MMMM D, YYYY hh:mm:ss'));
@@ -7,7 +7,7 @@ $('#currentDay').text(today.format('dddd, MMMM D, YYYY hh:mm:ss'));
 var userInput = $('#user-input');
 
 //variables for diff hrs
-const hrNine = $('#hour-9');
+const hrNine = $('#hour-9').text();
 const hrTen = $('#hour-10');
 const hrEleven = $('#hour-11');
 const hrTwelve = $('#hour-12');
@@ -16,6 +16,13 @@ const hrTwo = $('#hour-2');
 const hrThree = $('#hour-3');
 const hrFour = $('#hour-4');
 const hrFive = $('#hour-5');
+
+console.log(hrNine);
+
+//variables for diff time classes
+const pastTime = $('.row time-block past');
+const presentTime = $('.row time-block present');
+const futureTime = $('.row time-block future');
 
 const savedTask = localStorage.getItem('user-input');
 document.getElementById('user-input').value = savedTask
@@ -33,7 +40,8 @@ $( () => {
     // time-block containing the button that was clicked? How might the id be
     // useful when saving the description in local storage?
     
-    $('#save-button').click( () => {
+    //$('#save-button').click( (event) => {
+      //event.preventDefault();
       //$(this).siblings(userInput)
       //const listItem = document.createElement('p');
       //localStorage.setItem('user-input', JSON.stringify((userInput)));
@@ -45,7 +53,15 @@ $( () => {
     // attribute of each time-block be used to conditionally add or remove the
     // past, present, and future classes? How can Day.js be used to get the
     // current hour in 24-hour time?
-    
+      if (hrNine === currentTime.value) { 
+        hrNine.attr('class', 'present');
+      } else if (hrNine < currentTime.value){
+        //hrNine.addClass('past');
+        hrNine.attr('class', 'past');
+      } else if (hrNine > currentTime.value) {
+        //hrNine.addClass('future');
+        hrNine.attr('class', 'future');
+      };
     
     //
     // TODO: Add code to get any user input that was saved in localStorage and set
@@ -56,5 +72,5 @@ $( () => {
   });
   
     
-});
+;
 
