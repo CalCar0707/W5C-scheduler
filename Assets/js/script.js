@@ -7,7 +7,7 @@ $('#currentDay').text(today.format('dddd, MMMM D, YYYY hh:mm:ss'));
 var userInput = $('#user-input');
 
 //variables for diff hrs
-const hrNine = $('#hour-9');
+let hrNine = $('#hour-9');
 const hrTen = $('#hour-10');
 const hrEleven = $('#hour-11');
 const hrTwelve = $('#hour-12');
@@ -17,15 +17,12 @@ const hrThree = $('#hour-3');
 const hrFour = $('#hour-4');
 const hrFive = $('#hour-5');
 
-console.log(hrNine);
+console.log(hrTen);
 
-//variables for diff time classes
-const pastTime = $('.row time-block past');
-const presentTime = $('.row time-block present');
-const futureTime = $('.row time-block future');
 
 const savedTask = localStorage.getItem('user-input');
 document.getElementById('user-input').value = savedTask
+ console.log(savedTask);
 
 $(document).ready(() => {
     
@@ -40,35 +37,97 @@ $( () => {
     // time-block containing the button that was clicked? How might the id be
     // useful when saving the description in local storage?
     
-   // $('#save-button').click( (event) => {
-      //event.preventDefault();
+    //$('#save-button').click( () => {
       //$(this).siblings(userInput);
-     // const listItem = document.createElement('p');
-     // localStorage.setItem('user-input', JSON.stringify(userInput));
+      //const listItem = document.createElement('p');
+      //localStorage.setItem('user-input', JSON.stringify(userInput));
       //const savedTask = localStorage.getItem('user-input');
-      //listItem.append(savedTask); 
+     // listItem.append(savedTask); 
 
     // TODO: Add code to apply the past, present, or future class to each time
     // block by comparing the id to the current hour. HINTS: How can the id
     // attribute of each time-block be used to conditionally add or remove the
     // past, present, and future classes? How can Day.js be used to get the
     // current hour in 24-hour time?
-      if (hrNine === currentTime) { 
-        hrNine.addClass('present');
+      
+    if (hrNine === currentTime) { 
+        $('#hour-9').addClass('present');
       } else if (hrNine < currentTime){
-        hrNine.addClass('past');
-        //hrNine.attr('class', 'past');
+        $('#hour-9').addClass('past');
       } else if (hrNine > currentTime) {
-        hrNine.addClass('future');
-        //hrNine.attr('class', 'future');
+        $('#hour-9').addClass('future');
       };
-    
+
+      if (hrTen === currentTime) { 
+        $('#hour-10').addClass('present');
+      } else if (hrTen < currentTime){
+        $('#hour-10').addClass('past');
+      } else if (hrTen > currentTime) {
+        $('#hour-10').addClass('future');
+      };
+
+      if (hrEleven === currentTime) { 
+        $('#hour-11').addClass('present');
+      } else if (hrEleven < currentTime){
+        $('#hour-11').addClass('past');
+      } else if (hrEleven > currentTime) {
+        $('#hour-11').addClass('future');
+      };
+
+      if (hrTwelve === currentTime) { 
+        $('#hour-12').addClass('present');
+      } else if (hrTwelve < currentTime){
+        $('#hour-12').addClass('past');
+      } else if (hrTwelve > currentTime) {
+        $('#hour-12').addClass('future');
+      };
+
+      if (hrOne === currentTime) { 
+        $('#hour-1').addClass('present');
+      } else if (hrOne < currentTime){
+        $('#hour-1').addClass('past');
+      } else if (hrOne > currentTime) {
+        $('#hour-1').addClass('future');
+      };
+
+      if (hrTwo === currentTime) { 
+        $('#hour-2').addClass('present');
+      } else if (hrTwo < currentTime){
+        $('#hour-2').addClass('past');
+      } else if (hrTwo > currentTime) {
+        $('#hour-2').addClass('future');
+      };
+
+      if (hrThree === currentTime) { 
+        $('#hour-3').addClass('present');
+      } else if (hrThree < currentTime){
+        $('#hour-3').addClass('past');
+      } else if (hrThree > currentTime) {
+        $('#hour-3').addClass('future');
+      };
+
+      if (hrFour === currentTime) { 
+        $('#hour-4').addClass('present');
+      } else if (hrFour < currentTime){
+        $('#hour-4').addClass('past');
+      } else if (hrFour > currentTime) {
+        $('#hour-4').addClass('future');
+      };
+
+      if (hrFive === currentTime) { 
+        $('#hour-5').addClass('present');
+      } else if (hrFive < currentTime){
+        $('#hour-5').addClass('past');
+      } else if (hrFive > currentTime) {
+        $('#hour-5').addClass('future');
+      };
+
     //
     // TODO: Add code to get any user input that was saved in localStorage and set
     // the values of the corresponding textarea elements. HINT: How can the id
     // attribute of each time-block be used to do this?
     //
-    // TODO: Add code to display the current date in the header of the page.
+  
   });
   
     
