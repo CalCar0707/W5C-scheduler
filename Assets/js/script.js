@@ -1,17 +1,28 @@
 var today = dayjs();
+var currentTime = today.format('dddd, MMMM D, YYYY HH:mm:ss');
+console.log(currentTime);
+
 $('#currentDay').text(today.format('dddd, MMMM D, YYYY hh:mm:ss'));
 //^^ need to find out how to add advanced day js for day with ordinal
 var userInput = $('#user-input');
 
+//variables for diff hrs
+const hrNine = $('#hour-9');
+const hrTen = $('#hour-10');
+const hrEleven = $('#hour-11');
+const hrTwelve = $('#hour-12');
+const hrOne = $('#hour-1');
+const hrTwo = $('#hour-2');
+const hrThree = $('#hour-3');
+const hrFour = $('#hour-4');
+const hrFive = $('#hour-5');
+
 const savedTask = localStorage.getItem('user-input');
 document.getElementById('user-input').value = savedTask
 
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
 $(document).ready(() => {
     
-$(function () {
+$( () => {
     
     })
 
@@ -22,18 +33,20 @@ $(function () {
     // time-block containing the button that was clicked? How might the id be
     // useful when saving the description in local storage?
     
-    $('#save-button').on("click", function() {
-      $(this).siblings(userInput)
-      const listItem = document.createElement('p');
-      localStorage.setItem('user-input', JSON.stringify((userInput)));
-      const savedTask = localStorage.getItem('user-input');
-      listItem.append(savedTask); 
+    $('#save-button').click( () => {
+      //$(this).siblings(userInput)
+      //const listItem = document.createElement('p');
+      //localStorage.setItem('user-input', JSON.stringify((userInput)));
+      //const savedTask = localStorage.getItem('user-input');
+      //listItem.append(savedTask); 
 
     // TODO: Add code to apply the past, present, or future class to each time
     // block by comparing the id to the current hour. HINTS: How can the id
     // attribute of each time-block be used to conditionally add or remove the
     // past, present, and future classes? How can Day.js be used to get the
     // current hour in 24-hour time?
+    
+    
     //
     // TODO: Add code to get any user input that was saved in localStorage and set
     // the values of the corresponding textarea elements. HINT: How can the id
