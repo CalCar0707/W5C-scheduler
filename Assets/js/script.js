@@ -1,5 +1,5 @@
 var today = dayjs();
-var currentTime = today.format('HH');
+var currentTime = today.format('hh:mm');
 console.log(currentTime);
 
 $('#currentDay').text(today.format('dddd, MMMM D, YYYY hh:mm:ss'));
@@ -7,7 +7,7 @@ $('#currentDay').text(today.format('dddd, MMMM D, YYYY hh:mm:ss'));
 var userInput = $('#user-input');
 
 //variables for diff hrs
-const hrNine = $('#hour-9').text();
+const hrNine = $('#hour-9');
 const hrTen = $('#hour-10');
 const hrEleven = $('#hour-11');
 const hrTwelve = $('#hour-12');
@@ -40,11 +40,11 @@ $( () => {
     // time-block containing the button that was clicked? How might the id be
     // useful when saving the description in local storage?
     
-    //$('#save-button').click( (event) => {
+   // $('#save-button').click( (event) => {
       //event.preventDefault();
-      //$(this).siblings(userInput)
-      //const listItem = document.createElement('p');
-      //localStorage.setItem('user-input', JSON.stringify((userInput)));
+      //$(this).siblings(userInput);
+     // const listItem = document.createElement('p');
+     // localStorage.setItem('user-input', JSON.stringify(userInput));
       //const savedTask = localStorage.getItem('user-input');
       //listItem.append(savedTask); 
 
@@ -53,14 +53,14 @@ $( () => {
     // attribute of each time-block be used to conditionally add or remove the
     // past, present, and future classes? How can Day.js be used to get the
     // current hour in 24-hour time?
-      if (hrNine === currentTime.value) { 
-        hrNine.attr('class', 'present');
-      } else if (hrNine < currentTime.value){
-        //hrNine.addClass('past');
-        hrNine.attr('class', 'past');
-      } else if (hrNine > currentTime.value) {
-        //hrNine.addClass('future');
-        hrNine.attr('class', 'future');
+      if (hrNine === currentTime) { 
+        hrNine.addClass('present');
+      } else if (hrNine < currentTime){
+        hrNine.addClass('past');
+        //hrNine.attr('class', 'past');
+      } else if (hrNine > currentTime) {
+        hrNine.addClass('future');
+        //hrNine.attr('class', 'future');
       };
     
     //
@@ -72,5 +72,5 @@ $( () => {
   });
   
     
-;
+//});
 
