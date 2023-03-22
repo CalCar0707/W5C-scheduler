@@ -3,26 +3,24 @@ var currentTime = today.format('hh:mm');
 console.log(currentTime);
 
 $('#currentDay').text(today.format('dddd, MMMM D, YYYY hh:mm:ss'));
-//^^ need to find out how to add advanced day js for day with ordinal
+
 var userInput = $('#user-input');
 
 //variables for diff hrs
-let hrNine = $('#hour-9');
-const hrTen = $('#hour-10');
-const hrEleven = $('#hour-11');
-const hrTwelve = $('#hour-12');
-const hrOne = $('#hour-1');
-const hrTwo = $('#hour-2');
-const hrThree = $('#hour-3');
-const hrFour = $('#hour-4');
-const hrFive = $('#hour-5');
-
-console.log(hrTen);
+const hrNine = $('#hour-9').text();
+const hrTen = $('#hour-10').text();
+const hrEleven = $('#hour-11').text();
+const hrTwelve = $('#hour-12').text();
+const hrOne = $('#hour-1').text();
+const hrTwo = $('#hour-2').text();
+const hrThree = $('#hour-3').text();
+const hrFour = $('#hour-4').text();
+const hrFive = $('#hour-5').text();
 
 
 const savedTask = localStorage.getItem('user-input');
 document.getElementById('user-input').value = savedTask
- console.log(savedTask);
+
 
 $(document).ready(() => {
     
@@ -37,7 +35,7 @@ $( () => {
     // time-block containing the button that was clicked? How might the id be
     // useful when saving the description in local storage?
     
-    //$('#save-button').click( () => {
+   // $('#save-button').click( () => {
       //$(this).siblings(userInput);
       //const listItem = document.createElement('p');
       //localStorage.setItem('user-input', JSON.stringify(userInput));
