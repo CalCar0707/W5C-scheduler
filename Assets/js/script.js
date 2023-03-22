@@ -1,7 +1,6 @@
 var today = dayjs();
 $('#currentDay').text(today.format('dddd, MMMM D, YYYY hh:mm:ss'));
 //^^ need to find out how to add advanced day js for day with ordinal
-var saveBtn = $('#save-button');
 var userInput = $('#user-input');
 
 const savedTask = localStorage.getItem('user-input');
@@ -22,7 +21,14 @@ $(function () {
     // function? How can DOM traversal be used to get the "hour-x" id of the
     // time-block containing the button that was clicked? How might the id be
     // useful when saving the description in local storage?
-    //
+    
+    $('#save-button').on("click", function() {
+      $(this).siblings(userInput)
+      const listItem = document.createElement('p');
+      localStorage.setItem('user-input', JSON.stringify((userInput)));
+      const savedTask = localStorage.getItem('user-input');
+      listItem.append(savedTask); 
+
     // TODO: Add code to apply the past, present, or future class to each time
     // block by comparing the id to the current hour. HINTS: How can the id
     // attribute of each time-block be used to conditionally add or remove the
@@ -36,10 +42,6 @@ $(function () {
     // TODO: Add code to display the current date in the header of the page.
   });
   
-    saveBtn.on('click', function() {
-        const listItem = document.createElement('p');
-        localStorage.setItem('user-input', JSON.stringify((userInput)));
-        const savedTask = localStorage.getItem('user-input');
-        listItem.append(savedTask);
+    
 });
 
