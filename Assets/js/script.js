@@ -135,3 +135,7 @@ function readNotesFromStorage(){
   return prevNotes;
 };
 
+function saveNotesToStorage(){
+  localStorage.setItem('user-input', JSON.stringify(userInput));
+};
+
