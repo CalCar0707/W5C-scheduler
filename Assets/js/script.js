@@ -1,6 +1,6 @@
 var today = dayjs();
 var currentTime = today.format('hh:mm');
-console.log(currentTime);
+
 
 $('#currentDay').text(today.format('dddd, MMMM D, YYYY hh:mm:ss'));
 
@@ -42,12 +42,6 @@ $( () => {
       //const savedTask = localStorage.getItem('user-input');
      // listItem.append(savedTask); 
 
-    // TODO: Add code to apply the past, present, or future class to each time
-    // block by comparing the id to the current hour. HINTS: How can the id
-    // attribute of each time-block be used to conditionally add or remove the
-    // past, present, and future classes? How can Day.js be used to get the
-    // current hour in 24-hour time?
-      
     if (hrNine === currentTime) { 
         $('#hour-9').addClass('present');
       } else if (hrNine < currentTime){
@@ -130,4 +124,14 @@ $( () => {
   
     
 //});
+
+function readNotesFromStorage(){
+  var prevNotes = localStorage.getItem('userInput');
+  if(prevNotes) {
+    prevNotes = JSON.parse(prevNotes);
+  } else {
+    prevNotes = [];
+  }
+  return prevNotes;
+};
 
