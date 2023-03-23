@@ -35,12 +35,6 @@ $( () => {
     // time-block containing the button that was clicked? How might the id be
     // useful when saving the description in local storage?
     
-    //$('#save-button').click( () => {
-      //$(this).siblings(userInput);
-      //const listItem = document.createElement('p');
-      //localStorage.setItem('user-input', JSON.stringify(userInput));
-      //const savedTask = localStorage.getItem('user-input');
-      //listItem.append(savedTask); 
 
     if (hrNine === currentTime) { 
         $('#hour-9').addClass('present');
