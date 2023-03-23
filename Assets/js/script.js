@@ -36,11 +36,11 @@ $( () => {
     // useful when saving the description in local storage?
     
    // $('#save-button').click( () => {
-      //$(this).siblings(userInput);
+     // $(this).siblings(userInput);
       //const listItem = document.createElement('p');
       //localStorage.setItem('user-input', JSON.stringify(userInput));
       //const savedTask = localStorage.getItem('user-input');
-     // listItem.append(savedTask); 
+      //listItem.append(savedTask); 
 
     if (hrNine === currentTime) { 
         $('#hour-9').addClass('present');
@@ -136,6 +136,9 @@ function readNotesFromStorage(){
 };
 
 function saveNotesToStorage(){
+  $('#save-button').click( () => {
   localStorage.setItem('user-input', JSON.stringify(userInput));
-};
+}
+)};
 
+saveNotesToStorage();
