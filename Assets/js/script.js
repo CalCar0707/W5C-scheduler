@@ -35,8 +35,8 @@ $( () => {
     // time-block containing the button that was clicked? How might the id be
     // useful when saving the description in local storage?
     
-   // $('#save-button').click( () => {
-     // $(this).siblings(userInput);
+    //$('#save-button').click( () => {
+      //$(this).siblings(userInput);
       //const listItem = document.createElement('p');
       //localStorage.setItem('user-input', JSON.stringify(userInput));
       //const savedTask = localStorage.getItem('user-input');
@@ -137,7 +137,7 @@ function readNotesFromStorage(){
 
 function saveNotesToStorage(){
   $('#save-button').click( () => {
-  localStorage.setItem('user-input', JSON.stringify(userInput));
+  localStorage.setItem('user-input', JSON.stringify(userInput.val()));
 }
 )};
 
