@@ -1,8 +1,8 @@
-var today = dayjs();
-var currentTime = today.format('hh:mm');
+var todaysDate = dayjs();
+var currentTime = todaysDate.format('hh:mm');
 
 
-$('#currentDay').text(today.format('dddd, MMMM D, YYYY hh:mm:ss'));
+$('#currentDay').text(todaysDate.format('dddd, MMMM D, YYYY hh:mm:ss'));
 
 var userInput = $('#user-input');
 
@@ -24,9 +24,10 @@ document.getElementById('user-input').value = savedTask
 
 $(document).ready(() => {
     
-$( () => {
-    
-    })
+  $('#save-button').on('click', () => {
+    localStorage.setItem('user-input', JSON.stringify(userInput.val()));
+  }
+  )
 
     // TODO: Add a listener for click events on the save button. This code should
     // use the id in the containing time-block as a key to save the user input in
@@ -129,10 +130,4 @@ function readNotesFromStorage(){
   return prevNotes;
 };
 
-function saveNotesToStorage(){
-  $('#save-button').click( () => {
-  localStorage.setItem('user-input', JSON.stringify(userInput.val()));
-}
-)};
 
-saveNotesToStorage();
