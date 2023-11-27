@@ -2,7 +2,7 @@ var todaysDate = dayjs();
 var currentTime = todaysDate.format('hh:mm');
 
 
-$('#currentDay').text(todaysDate.format('dddd, MMMM D, YYYY hh:mm:ss'));
+$('#currentDay').text(todaysDate.format('dddd, MMMM D, YYYY'));
 
 var userInput = $('#user-input');
 
@@ -18,14 +18,20 @@ const hrFour = $('#hour-4').text();
 const hrFive = $('#hour-5').text();
 
 
-const savedTask = localStorage.getItem('user-input');
-document.getElementById('user-input').value = savedTask
+// const savedTask = localStorage.getItem('user-input');
+// document.getElementById('user-input').value = savedTask
 
 
 $(document).ready(() => {
-    
+    //input for time and text both showing undefined
   $('#save-button').on('click', () => {
-    localStorage.setItem('user-input', JSON.stringify(userInput.val()));
+    
+    var text = $(this).siblings('.description').val();
+    var time = $(this).parent();
+
+    console.log(time);
+
+    localStorage.setItem(time, text);
   }
   )
 
