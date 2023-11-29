@@ -7,7 +7,7 @@ $currentDay.text(todaysDate.format('dddd, MMMM D, YYYY'));
 var userInput = $('#user-input');
 
 //variables for diff hrs
-const hrNine = $('#hour-9').text();
+const hrNine = $('#hour-9');
 const hrTen = $('#hour-10').text();
 const hrEleven = $('#hour-11').text();
 const hrTwelve = $('#hour-12').text();
@@ -21,19 +21,16 @@ const hrFive = $('#hour-5').text();
 
 // const savedTask = localStorage.getItem('user-input');
 // document.getElementById('user-input').value = savedTask
-
+console.log(hrNine.val);
 
 $(document).ready(() => {
     //input for time and text both showing undefined
     const $saveButton = $('#save-button');
     $saveButton.on('click', () => {
-    
-    var text = $(this).siblings('.description').val();
-    var time = $(this).parent();
-
-    console.log(time);
-
-    localStorage.setItem(time, text);
+    //EVENT TARGET AND LISTNERS JQUERY CODECADEMY PROJECT FEEDSTER
+      
+      
+      
   }
   )
 
@@ -43,6 +40,9 @@ $(document).ready(() => {
     // function? How can DOM traversal be used to get the "hour-x" id of the
     // time-block containing the button that was clicked? How might the id be
     // useful when saving the description in local storage?
+    
+    //shoginw current time
+    console.log(currentTime);
     
 
     if (hrNine === currentTime) { 
