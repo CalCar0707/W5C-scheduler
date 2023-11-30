@@ -1,5 +1,5 @@
 var todaysDate = dayjs();
-var currentTime = todaysDate.format('hh:mm');
+var currentTime = todaysDate.format('h');
 
 const $currentDay = $('#currentDay');
 $currentDay.text(todaysDate.format('dddd, MMMM D, YYYY'));
@@ -7,7 +7,7 @@ $currentDay.text(todaysDate.format('dddd, MMMM D, YYYY'));
 var userInput = $('#user-input');
 
 //variables for diff hrs
-const hrNine = $('#hour-9');
+const hrNine = $('#hour-9').text();
 const hrTen = $('#hour-10').text();
 const hrEleven = $('#hour-11').text();
 const hrTwelve = $('#hour-12').text();
@@ -21,18 +21,18 @@ const hrFive = $('#hour-5').text();
 
 // const savedTask = localStorage.getItem('user-input');
 // document.getElementById('user-input').value = savedTask
-console.log(hrNine.val);
 
-$(document).ready(() => {
-    //input for time and text both showing undefined
-    const $saveButton = $('#save-button');
-    $saveButton.on('click', () => {
+$(document).ready( function () {
+
+    $('.saveBtn').on('click', function () {
     //EVENT TARGET AND LISTNERS JQUERY CODECADEMY PROJECT FEEDSTER
-      
-      
-      
-  }
-  )
+    let time = $(this).parent().attr('id');
+    let text = $(this).siblings('.description').val();
+      console.log(text);
+      console.log(time);
+
+      localStorage.setItem(time, text);
+  });
 
     // TODO: Add a listener for click events on the save button. This code should
     // use the id in the containing time-block as a key to save the user input in
@@ -45,7 +45,7 @@ $(document).ready(() => {
     console.log(currentTime);
     
 
-    if (hrNine === currentTime) { 
+    if (9 === currentTime) { 
         $('#hour-9').addClass('present');
       } else if (hrNine < currentTime){
         $('#hour-9').addClass('past');
@@ -53,7 +53,7 @@ $(document).ready(() => {
         $('#hour-9').addClass('future');
       };
 
-      if (hrTen === currentTime) { 
+      if (10 === currentTime) { 
         $('#hour-10').addClass('present');
       } else if (hrTen < currentTime){
         $('#hour-10').addClass('past');
@@ -101,7 +101,7 @@ $(document).ready(() => {
         $('#hour-3').addClass('future');
       };
 
-      if (hrFour === currentTime) { 
+      if (4 === currentTime) { 
         $('#hour-4').addClass('present');
       } else if (hrFour < currentTime){
         $('#hour-4').addClass('past');
@@ -109,11 +109,11 @@ $(document).ready(() => {
         $('#hour-4').addClass('future');
       };
 
-      if (hrFive === currentTime) { 
+      if (5 == currentTime) { 
         $('#hour-5').addClass('present');
-      } else if (hrFive < currentTime){
+      } else if (5 < currentTime){
         $('#hour-5').addClass('past');
-      } else if (hrFive > currentTime) {
+      } else if (5 > currentTime) {
         $('#hour-5').addClass('future');
       };
 
