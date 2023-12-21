@@ -18,29 +18,31 @@ const hrFour = $('#hour-4').text();
 const hrFive = $('#hour-5').text();
 
 
-$(document).ready( () => {
-//save note to local storage
-    $('.saveBtn').on('click', function () {
+$(document).ready( function () {
+
+
+  readNotesFromStorage();
+
+  //save note to local storage
+  $('.saveBtn').on('click', function (event) {
+    event.preventDefault();
+    
     let time = $(this).parent().attr('id');
-    let text = $(this).siblings('.description').val();
-    
-      localStorage.setItem(time, text);
+    let userInput = $(this).siblings('#user-input').val();
+      
+    localStorage.setItem(time, userInput);
+
   });
-    
-    //showing current time
-    console.log(currentTime);
-    
+
+
 function timeColor () {
 
   let currentTime = dayjs().hour();
-  console.log(currentTime);
 
    $('.time-block').each( function () {
 
       let hour = parseInt($(this).attr('id'));
-      console.log(hour);
       
-
       if(currentTime === hour) {
         $(this).addClass('present');
       } else if(hour > currentTime) {
@@ -57,19 +59,42 @@ function timeColor () {
     //
     }
 
-    function readNotesFromStorage(){
-      var prevNotes = localStorage.getItem('userInput');
-      if(prevNotes) {
-        prevNotes = JSON.parse(prevNotes);
-      } else {
-        prevNotes = [];
-      }
-      return prevNotes;
+      function readNotesFromStorage(){
+    
+        // $('#user-input').each( function () {
 
-    };
+          // let time = $(this).parent().attr('id');
+          // let savedNote = localStorage.getItem(time);
+          // console.log(time);
+          // console.log(savedNote);
 
-    timeColor();
+          // if(!savedNote){
+          //   return;
+          // }
+        // $(this).siblings('.description').textContent = savedNote;
+
+        // })
+        //ONLY 9 HR BLOCK IS PERSISTING
+        $('#user-input').each( function () {
+        let test = 'where is this  going to show up?';
+        let time = $(this).parent().attr('id');
+        let savedNote = localStorage.getItem(time);
+        //shows up in 9 hr block
+        //userInput.val(savedNote);
+         $(this).val(savedNote);
+       
+       
+       //does not show output
+        //$(this).textContent = savedNote;
+        })
+
+  };
+
+
+
     readNotesFromStorage();
+    timeColor();
+    
 
   });
   
